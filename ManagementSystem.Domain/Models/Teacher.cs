@@ -13,7 +13,7 @@ public class Teacher : Person
         string nationalIdNumber, 
         string name, 
         string surname, 
-        DateTime dateOfBirth, 
+        DateOnly dateOfBirth, 
         Title title, 
         string number,
         int? salary) : base(id, nationalIdNumber, name, surname, dateOfBirth)

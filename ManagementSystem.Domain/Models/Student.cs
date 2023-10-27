@@ -9,7 +9,7 @@ public class Student : Person
         string nationalIdNumber,
         string name,
         string surname,
-        DateTime dateOfBirth,
+        DateOnly dateOfBirth,
         string number) : base(id, nationalIdNumber, name, surname, dateOfBirth)
     {
         Number = number;
