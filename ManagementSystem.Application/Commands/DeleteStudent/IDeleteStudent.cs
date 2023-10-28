@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.DeleteStudent;
+﻿using ManagementSystem.Application.Dtos.Results.DeleteStudent;
 
 namespace ManagementSystem.Application.Commands.DeleteStudent;
 

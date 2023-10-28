@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.DeleteTeacher;
+﻿using ManagementSystem.Application.Dtos.Results.DeleteTeacher;
 
 namespace ManagementSystem.Application.Commands.DeleteTeacher;
 

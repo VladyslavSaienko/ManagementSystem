@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.AddStudent;
+﻿using ManagementSystem.Application.Dtos.Results.AddStudent;
 using ManagementSystem.Application.Extensions;
 using ManagementSystem.Domain.Repositories.Interfaces;
 

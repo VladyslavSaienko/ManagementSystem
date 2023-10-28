@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.AddStudent;
+﻿using ManagementSystem.Application.Dtos.Results.AddStudent;
 
 namespace ManagementSystem.Application.Commands.AddStudent;
 

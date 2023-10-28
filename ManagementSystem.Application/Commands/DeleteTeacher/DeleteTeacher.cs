@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.DeleteTeacher;
+﻿using ManagementSystem.Application.Dtos.Results.DeleteTeacher;
 using ManagementSystem.Domain.Repositories.Interfaces;
 
 namespace ManagementSystem.Application.Commands.DeleteTeacher;

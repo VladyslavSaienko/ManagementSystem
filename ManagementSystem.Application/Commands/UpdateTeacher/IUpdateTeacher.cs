@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.UpdateTeacher;
+﻿using ManagementSystem.Application.Dtos.Results.UpdateTeacher;
 
 namespace ManagementSystem.Application.Commands.UpdateTeacher;
 

@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.AddTeacher;
+﻿using ManagementSystem.Application.Dtos.Results.AddTeacher;
 
 namespace ManagementSystem.Application.Commands.AddTeacher;
 

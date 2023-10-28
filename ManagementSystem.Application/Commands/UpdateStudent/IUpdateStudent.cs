@@ -1,4 +1,4 @@
-﻿using ManagementSystem.Application.Dtos.UpdateStudent;
+﻿using ManagementSystem.Application.Dtos.Results.UpdateStudent;
 
 namespace ManagementSystem.Application.Commands.UpdateStudent;
 
