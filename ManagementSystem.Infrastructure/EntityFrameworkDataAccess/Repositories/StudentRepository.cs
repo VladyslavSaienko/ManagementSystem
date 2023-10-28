@@ -5,13 +5,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ManagementSystem.Infrastructure.EntityFrameworkDataAccess.Repositories;
 
-public class StudentRepository : IStudentWriteOnlyRepository
+public class StudentRepository : IStudentReadOnlyRepository, IStudentWriteOnlyRepository
 {
     private readonly Context _context;
 
     public StudentRepository(Context context)
     {
         _context = context;
+    }
+
+    public Task<bool> Exists(Guid id) => _context.Students.AnyAsync(p => p.Id == id);
+
+    public async Task<Student> Get(Guid id)
+    {
+        var studentEntity = await _context.Students.AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);
+
+        return new Student(studentEntity.Id, studentEntity.NationalIdNumber, studentEntity.Name, studentEntity.Surname, studentEntity.DateOfBirth, studentEntity.Number);
     }
 
     public async Task Add(Student student)
