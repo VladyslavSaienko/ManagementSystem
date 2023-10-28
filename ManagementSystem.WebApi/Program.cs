@@ -1,7 +1,12 @@
+using Autofac.Extensions.DependencyInjection;
 using ManagementSystem.Infrastructure.EntityFrameworkDataAccess;
+using ManagementSystem.WebApi.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureAutofacContainer();
 
 // Add services to the container.
 
