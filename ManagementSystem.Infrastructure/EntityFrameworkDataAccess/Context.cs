@@ -10,7 +10,7 @@ namespace ManagementSystem.Infrastructure.EntityFrameworkDataAccess
     {
         public const string DbName = "ManagementSystem";
 
-        public Context(DbContextOptions dbContextOptions)
+        public Context(DbContextOptions<Context> dbContextOptions)
             : base(dbContextOptions)
         {
         }
