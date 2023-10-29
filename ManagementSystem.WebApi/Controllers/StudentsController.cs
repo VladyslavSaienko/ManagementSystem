@@ -30,14 +30,13 @@ public class StudentsController : ControllerBase
     /// <param name="id">Id of student in database</param>
     /// <param name="getStudentService">Injected service for getting student by id</param>
     /// <returns>Student info</returns>
-    /// <exception cref="NotImplementedException"></exception>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(GetStudentSuccess), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(GetStudentNotFound), StatusCodes.Status404NotFound)]
     [Produces("application/json")]
     public async Task<ActionResult<GetStudentResult>> Get(
-    [FromRoute] Guid id,
-    [FromServices] IGetStudent getStudentService)
+        [FromRoute] Guid id,
+        [FromServices] IGetStudent getStudentService)
     {
         var result = await getStudentService.Execute(id);
         return result switch
@@ -57,6 +56,7 @@ public class StudentsController : ControllerBase
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<StudentListItem>))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Produces("application/json")]
     public async Task<IActionResult> List(
         [FromQuery] SearchStudents request,
         [FromServices] IListStudents service)
@@ -122,7 +122,7 @@ public class StudentsController : ControllerBase
 
         return result switch
         {
-            UpdateStudentSuccess success => NoContent(),
+            UpdateStudentSuccess => NoContent(),
             UpdateStudentFailed failed => BadRequest(failed),
             _ => throw new NotImplementedException()
         };
@@ -145,7 +145,7 @@ public class StudentsController : ControllerBase
         var result = await deleteStudentService.Execute(id);
         return result switch
         {
-            DeleteStudentSuccess success => NoContent(),
+            DeleteStudentSuccess => NoContent(),
             DeleteStudentNotFound notFound => NotFound(notFound),
             DeleteStudentFailed failed => BadRequest(failed),
             _ => throw new NotImplementedException()
