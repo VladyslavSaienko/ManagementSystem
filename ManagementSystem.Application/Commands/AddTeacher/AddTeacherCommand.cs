@@ -8,6 +8,6 @@ public record AddTeacherCommand(
     string Surname,
     string Number,
     DateOnly DateOfBirth,
-    Title Title,
+    string Title,
     int? Salary);
 

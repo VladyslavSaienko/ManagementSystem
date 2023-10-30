@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
 using ManagementSystem.Application.Commands.AddTeacher;
+using ManagementSystem.Domain.Enums;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ManagementSystem.WebApi.Validators;
 
@@ -31,7 +33,7 @@ public class AddTeacherCommandValidator : AbstractValidator<AddTeacherCommand>
             .NotEmpty()
             .WithMessage(FluentValidationMessages.NotEmptyMessage);
 
-        RuleFor(a => a.Title)
+        RuleFor(a => (Title)Enum.Parse(typeof(Title), a.Title))
             .IsInEnum()
             .WithMessage(FluentValidationMessages.NotValidTeacherTitleMessage);
     }

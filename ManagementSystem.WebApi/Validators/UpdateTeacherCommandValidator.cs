@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using ManagementSystem.Application.Commands.UpdateTeacher;
+using ManagementSystem.Domain.Enums;
 
 namespace ManagementSystem.WebApi.Validators;
 
@@ -31,7 +32,7 @@ public class UpdateTeacherCommandValidator : AbstractValidator<UpdateTeacherComm
             .NotEmpty()
             .WithMessage(FluentValidationMessages.NotEmptyMessage);
 
-        RuleFor(a => a.Title)
+        RuleFor(a => (Title)Enum.Parse(typeof(Title), a.Title))
             .IsInEnum()
             .WithMessage(FluentValidationMessages.NotValidTeacherTitleMessage);
     }

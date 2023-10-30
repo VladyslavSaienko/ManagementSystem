@@ -1,5 +1,6 @@
 ﻿using ManagementSystem.Application.Commands.AddTeacher;
 using ManagementSystem.Application.Commands.UpdateTeacher;
+using ManagementSystem.Domain.Enums;
 using ManagementSystem.Domain.Models;
 
 namespace ManagementSystem.Application.Extensions;
@@ -14,7 +15,7 @@ internal static class TeacherExtensions
             command.Name,
             command.Surname,
             command.DateOfBirth,
-            command.Title,
+            (Title)Enum.Parse(typeof(Title), command.Title),
             command.Number,
             command.Salary);
     }
@@ -27,7 +28,7 @@ internal static class TeacherExtensions
             command.Name,
             command.Surname,
             command.DateOfBirth,
-            command.Title,
+            (Title)Enum.Parse(typeof(Title), command.Title),
             command.Number,
             command.Salary);
     }
