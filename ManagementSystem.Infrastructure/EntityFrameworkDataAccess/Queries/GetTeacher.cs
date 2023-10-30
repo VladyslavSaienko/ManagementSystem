@@ -29,7 +29,7 @@ public class GetTeacher : IGetTeacher
             entity.Surname,
             entity.Number,
             entity.DateOfBirth,
-            entity.Title,
+            entity.Title.ToString(),
             entity.Salary);
     }
 }

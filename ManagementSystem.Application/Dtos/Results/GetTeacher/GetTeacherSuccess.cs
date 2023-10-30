@@ -9,5 +9,5 @@ public record GetTeacherSuccess(
     string Surname,
     string Number,
     DateOnly DateOfBirth,
-    Title Title,
+    string Title,
     int? Salary) : GetTeacherResult;

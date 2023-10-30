@@ -39,7 +39,7 @@ public class ListTeachers : IListTeachers
                         p.Surname,
                         p.Number,
                         p.DateOfBirth,
-                        p.Title,
+                        p.Title.ToString(),
                         p.Salary
                         ))
                 .ToListAsync();
