@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using ManagementSystem.Application.Commands.AddTeacher;
 using ManagementSystem.Domain.Enums;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ManagementSystem.WebApi.Validators;
 
