@@ -1,5 +1,6 @@
 ﻿using ManagementSystem.Application.Dtos.Results.DeleteStudent;
 using ManagementSystem.Domain.Repositories.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace ManagementSystem.Application.Commands.DeleteStudent;
 
@@ -7,11 +8,13 @@ public class DeleteStudent : IDeleteStudent
 {
     private readonly IStudentReadOnlyRepository _studentReadOnlyRepository;
     private readonly IStudentWriteOnlyRepository _studentWriteOnlyRepository;
+    private readonly ILogger<DeleteStudent> _logger;
 
-    public DeleteStudent(IStudentReadOnlyRepository studentReadOnlyRepository, IStudentWriteOnlyRepository studentWriteOnlyRepository)
+    public DeleteStudent(IStudentReadOnlyRepository studentReadOnlyRepository, IStudentWriteOnlyRepository studentWriteOnlyRepository, ILogger<DeleteStudent> logger)
     {
         _studentReadOnlyRepository = studentReadOnlyRepository;
         _studentWriteOnlyRepository = studentWriteOnlyRepository;
+        _logger = logger;
     }
 
     public async Task<DeleteStudentResult> Execute(Guid studentId)
@@ -27,6 +30,7 @@ public class DeleteStudent : IDeleteStudent
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Error occurred during delete student.");
             return new DeleteStudentFailed();
         }
     }
