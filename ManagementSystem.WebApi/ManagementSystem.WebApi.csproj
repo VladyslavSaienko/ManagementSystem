@@ -23,4 +23,8 @@
     <ProjectReference Include="..\ManagementSystem.Infrastructure\ManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="ManagementSystem.IntegrationTests" />
+  </ItemGroup>
+
 </Project>
