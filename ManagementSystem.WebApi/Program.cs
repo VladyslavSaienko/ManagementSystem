@@ -1,4 +1,6 @@
 using Autofac.Extensions.DependencyInjection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using ManagementSystem.Infrastructure.EntityFrameworkDataAccess;
 using ManagementSystem.WebApi.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,11 @@ builder.Services.AddDbContext<Context>(options =>
         options.UseNpgsql(
             builder.Configuration.GetConnectionString(Context.DbName),
             x => x.MigrationsHistoryTable("__EFMigrationsHistory")));
+
+var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName is not null).ToArray();
+
+builder.Services.AddValidatorsFromAssemblies(assemblies);
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
